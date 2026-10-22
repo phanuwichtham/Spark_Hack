@@ -1,0 +1,5 @@
+.cloud-login{max-width:500px;margin:8vh auto;padding:28px;}
+.cloud-login p{margin:16px 0;}
+.cloud-bar{margin-bottom:20px;}
+.cloud-bar .actions{margin-top:8px;}
+@media(max-width:560px){.cloud-login{margin:24px 12px;}.cloud-bar .actions{flex-wrap:wrap;}}

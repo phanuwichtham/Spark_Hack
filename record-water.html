@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0B6F68">
+<meta name="description" content="ปลาศาลาหุม ช่วยดูแลปลา วางแผนจับ และเชื่อมผู้ซื้อ ต้นแบบสาธิต">
+<title>บันทึกค่าน้ำและอาการ | ปลาศาลาหุม</title>
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/cloud.css">
+<script defer src="assets/js/config.js">
+</script>
+<script defer src="assets/js/utils.js">
+</script>
+<script defer src="assets/js/demo-data.js">
+</script>
+<script defer src="assets/js/calculations.js">
+</script>
+<script defer src="assets/js/risk-engine.js">
+</script>
+<script defer src="assets/js/store.js">
+</script>
+<script defer src="assets/js/domain.js">
+</script>
+<script defer src="assets/js/database-config.js"></script>
+<script defer src="assets/js/cloud.js"></script>
+<script defer src="assets/js/app-shell.js">
+</script>
+<script defer src="assets/js/pages/record-water.js">
+</script>
+</head>
+<body data-page="record-water">
+<a class="skip" href="#main">ข้ามไปเนื้อหาหลัก</a>
+<aside class="app-sidebar" id="app-sidebar" aria-label="เมนูด้านข้าง">
+</aside>
+<header class="app-header" id="app-header">
+</header>
+<main id="main" class="page">
+<div class="breadcrumbs">
+<a href="index.html">หน้าหลัก</a> / บันทึกค่าน้ำและอาการ</div>
+<div id="connection-notice">
+</div>
+<div id="role-gate">
+</div>
+<div class="page-heading">
+<div>
+<div class="eyebrow">ปลาศาลาหุม · พื้นที่ทดลอง</div>
+<h1>บันทึกค่าน้ำและอาการ</h1>
+<p>ช่วยดูแลปลา วางแผนจับ และเชื่อมผู้ซื้อ</p>
+</div>
+<a class="back-link" href="dashboard.html">← กลับภาพรวม</a>
+</div>
+<div id="detail-content">
+<div class="split">
+<section class="card">
+<div class="card-head">
+<h2 id="water-cage-title">ข้อมูลที่กำลังกรอก</h2>
+<span id="draft-status" class="tag unknown">ยังไม่บันทึก</span>
+</div>
+<p class="small muted">เว้นว่าง = ไม่มีข้อมูล • เลข 0 = ค่าที่วัดได้จริง<br>เวลาในฟอร์มใช้เวลาประเทศไทย</p>
+<form id="water-form" style="margin-top:20px">
+<div class="fields">
+<div class="field">
+<label for="do">ออกซิเจนละลายน้ำ DO (mg/L)</label>
+<input id="do" name="do" type="number" value="" min="0" max="50" step="0.01" inputmode="decimal">
+<small>เว้นว่างหากไม่มีข้อมูล ไม่ใช้ % saturation</small>
+</div>
+<div class="field">
+<label for="temperature">อุณหภูมิ (°C)</label>
+<input id="temperature" name="temperature" type="number" value="" min="0" max="60" step="0.01" inputmode="decimal">
+</div>
+<div class="field">
+<label for="salinity">ความเค็ม (ppt)</label>
+<input id="salinity" name="salinity" type="number" value="" min="0" max="100" step="0.01" inputmode="decimal">
+<small>ไม่ใช้ Conductivity แทนความเค็ม</small>
+</div>
+<div class="field">
+<label for="ph">pH</label>
+<input id="ph" name="ph" type="number" value="" min="0" max="14" step="0.01" inputmode="decimal">
+</div>
+<div class="field">
+<label for="measuredAt">วันเวลาที่วัด (ไทย)</label>
+<input id="measuredAt" name="measuredAt" type="datetime-local" value="" step="1" required>
+</div>
+<div class="field">
+<label for="point">จุด/ความลึกที่วัด</label>
+<input id="point" name="point" type="text" value="" placeholder="เช่น ผิวน้ำ 0.5 ม.">
+</div>
+<div class="field">
+<label for="source">แหล่งข้อมูล</label>
+<select id="source" name="source">
+<option>กรอกเอง</option>
+<option>เครื่องวัดจำลอง</option>
+<option>เซนเซอร์จำลอง</option>
+</select>
+</div>
+<div class="field">
+<label for="instrument">ความน่าเชื่อถือของเครื่อง</label>
+<select id="instrument" name="instrument">
+<option>ยังไม่ยืนยัน</option>
+<option>ตรวจเครื่องแล้ว (สาธิต)</option>
+<option>ต้องตรวจสอบตามรอบ</option>
+</select>
+</div>
+</div>
+<fieldset>
+<legend>อาการปลาที่สังเกต</legend>
+<p class="small muted">ไม่เลือกอาการ = ยังไม่พบอาการที่ระบุ</p>
+<label class="check">
+<input type="checkbox" name="symptoms" value="กินอาหารลดลง">กินอาหารลดลง</label>
+<label class="check">
+<input type="checkbox" name="symptoms" value="ลอยหัว">ลอยหัว</label>
+<label class="check">
+<input type="checkbox" name="symptoms" value="ว่ายผิดปกติ">ว่ายผิดปกติ</label>
+<label class="check">
+<input type="checkbox" name="symptoms" value="พบปลาตาย">พบปลาตาย</label>
+</fieldset>
+<div class="field">
+<label for="symptomAt">เวลาสังเกตอาการ (ไทย)</label>
+<input id="symptomAt" name="symptomAt" type="datetime-local" value="" step="1">
+</div>
+<div class="field">
+<label for="note">หมายเหตุ</label>
+<textarea id="note" name="note">
+</textarea>
+</div>
+<div class="form-error" role="alert" hidden>
+</div>
+<div class="actions">
+<button class="btn" type="submit">บันทึกและดูผลประเมิน →</button>
+<button class="btn secondary" id="save-water-draft" type="button">บันทึกร่าง</button>
+</div>
+</form>
+</section>
+<aside class="stack">
+<article class="card soft">
+<h3>บันทึกจากที่วัดจริง</h3>
+<p class="small muted">ข้อมูลเก่าบันทึกเป็นประวัติได้ แต่ไม่แทนค่าล่าสุดตามเวลาวัด</p>
+<hr>
+<p class="small" data-clock>
+</p>
+</article>
+<section class="card">
+<h3>ค่าล่าสุดที่บันทึกแล้ว</h3>
+<div id="last-saved-water">
+</div>
+</section>
+</aside>
+</div>
+</div>
+<footer class="page-footer">
+<span>ปลาศาลาหุม · ต้นแบบสำหรับ SPARK HACK Season 2</span>
+<span data-clock>
+</span>
+</footer>
+</main>
+<nav class="bottom-nav" id="bottom-nav" aria-label="เมนูมือถือ">
+</nav>
+</body>
+</html>

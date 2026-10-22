@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0B6F68">
+<meta name="description" content="ปลาศาลาหุม ช่วยดูแลปลา วางแผนจับ และเชื่อมผู้ซื้อ ต้นแบบสาธิต">
+<title>คู่มือใช้งานและสาธิต | ปลาศาลาหุม</title>
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/cloud.css">
+<script defer src="assets/js/config.js">
+</script>
+<script defer src="assets/js/utils.js">
+</script>
+<script defer src="assets/js/demo-data.js">
+</script>
+<script defer src="assets/js/calculations.js">
+</script>
+<script defer src="assets/js/risk-engine.js">
+</script>
+<script defer src="assets/js/store.js">
+</script>
+<script defer src="assets/js/domain.js">
+</script>
+<script defer src="assets/js/database-config.js"></script>
+<script defer src="assets/js/cloud.js"></script>
+<script defer src="assets/js/app-shell.js">
+</script>
+<script defer src="assets/js/pages/guide.js">
+</script>
+</head>
+<body data-page="guide">
+<a class="skip" href="#main">ข้ามไปเนื้อหาหลัก</a>
+<aside class="app-sidebar" id="app-sidebar" aria-label="เมนูด้านข้าง">
+</aside>
+<header class="app-header" id="app-header">
+</header>
+<main id="main" class="page">
+<div class="breadcrumbs">
+<a href="index.html">หน้าหลัก</a> / คู่มือใช้งานและสาธิต</div>
+<div id="connection-notice">
+</div>
+<div id="role-gate">
+</div>
+<div class="page-heading">
+<div>
+<div class="eyebrow">ปลาศาลาหุม · พื้นที่ทดลอง</div>
+<h1>คู่มือใช้งานและสาธิต</h1>
+<p>ช่วยดูแลปลา วางแผนจับ และเชื่อมผู้ซื้อ</p>
+</div>
+<a class="back-link" href="dashboard.html">← กลับภาพรวม</a>
+</div>
+<section class="card guide-section">
+<div class="eyebrow">เริ่มได้ภายในไม่กี่คลิก</div>
+<h2>เลือกบทบาท แล้วเริ่มสถานการณ์</h2>
+<p>สลับบัญชีสมมติที่มุมขวาบน ทุกบทบาทใช้ข้อมูลเดียวกันใน Browser และ Origin เดียวกัน</p>
+<div class="actions">
+<button class="btn" data-scenario="normal">ทดลองขายปกติ</button>
+<button class="btn secondary" data-scenario="urgent">ทดลองพบความเสี่ยง C03</button>
+<button class="btn secondary" data-scenario="missing">ทดลองข้อมูลไม่ครบ C04</button>
+</div>
+</section>
+<section class="grid three" style="margin-top:24px">
+<article class="card">
+<h3>ผู้เลี้ยงปลา</h3>
+<ol>
+<li>บันทึกค่าน้ำ</li>
+<li>อ่านผลสองแกนและรับงาน</li>
+<li>บันทึกผลติดตาม</li>
+<li>เสนอแผนและยืนยันออเดอร์</li>
+<li>ชั่งจริงแล้วดูเงินสุทธิ</li>
+</ol>
+</article>
+<article class="card">
+<h3>ร้านอาหาร</h3>
+<ol>
+<li>เลือกปลาและส่งคำขอ</li>
+<li>ยืนยันออเดอร์/ข้อเสนอ</li>
+<li>ติดตามรอบส่ง</li>
+<li>รับเต็มหรือบางส่วน</li>
+</ol>
+</article>
+<article class="card">
+<h3>ผู้ประสานกลุ่ม</h3>
+<ol>
+<li>จัดสรรและมอบหมาย</li>
+<li>เสนอร้านที่สมัครใจ</li>
+<li>ตรวจคุณภาพ รถ เย็น</li>
+<li>อนุมัติและส่งมอบ</li>
+<li>กระทบยอดและจ่ายในเดโม</li>
+</ol>
+</article>
+</section>
+<section class="card" id="server" style="margin-top:24px">
+<h2>เปิดบนคอมพิวเตอร์</h2>
+<p>แตก ZIP แล้วเปิด Terminal ในโฟลเดอร์ที่มี index.html วิธี Python ต้องติดตั้ง Python3 ถ้าเลือกใช้วิธีนี้</p>
+<p>
+<strong>macOS</strong>
+</p>
+<pre>python3 -m http.server 8000 --bind 127.0.0.1</pre>
+<p>
+<strong>Windows</strong>
+</p>
+<pre>py -m http.server 8000 --bind 127.0.0.1</pre>
+<p>เปิด http://localhost:8000/index.html หรือใช้ VS Code Live Server แทนได้ ไม่ต้อง npm</p>
+<h3 style="margin-top:20px">มือถือใน Wi-Fi เดียวกัน</h3>
+<pre>python3 -m http.server 8000 --bind 0.0.0.0</pre>
+<p>Windows เปลี่ยน python3 เป็น py หา IP ด้วย ipconfig หรือ macOS: System Settings → Wi-Fi → Details → TCP/IP เปิด http://IP-ของคอม:8000/index.html ในมือถือ อนุญาต Firewall เฉพาะเครือข่ายส่วนตัว ไม่ต้องเปิดพอร์ต Router</p>
+<div class="notice warning" style="margin-top:18px">ข้อมูลแยกตาม Browser และ Origin: localhost กับ IP เป็นคนละชุด มือถือไม่ได้ Sync กับคอม สาธิตสลับบทบาทใน Browser เดียวกันเป็นหลัก</div>
+</section>
+<section class="card" style="margin-top:24px">
+<h2>จัดการข้อมูลสาธิต</h2>
+<p class="small" data-clock>
+</p>
+<p class="small muted">Demo Clock หยุดไว้ตอนเริ่มชุดเพื่อไม่ให้หมดอายุเอง เลื่อนเวลาเพื่อทดสอบข้อมูลเก่าหรือข้อเสนอหมดอายุได้ในบทบาทผู้ประสาน</p>
+<div class="actions">
+<button class="btn secondary" id="export-state">ส่งออกข้อมูลสำรอง JSON</button>
+<button class="btn secondary" id="advance-clock">เลื่อนเวลาสาธิต +24 ชม.</button>
+<button class="btn danger" id="reset-demo">Reset เดโม</button>
+<a class="btn secondary" href="tests/test-runner.html">เปิดชุดทดสอบ</a>
+</div>
+</section>
+<section class="card" style="margin-top:24px">
+<h2>ขอบเขตต้นแบบ</h2>
+<p>ทุกบัญชี ราคา ค่าน้ำ ภาพ และสถานะเงินเป็นสมมติ ไม่มี LINE/SMS/Email ธนาคาร หรือเซนเซอร์จริง การซ่อนหน้าตามบทบาทไม่ใช่ระบบสิทธิที่ปลอดภัยสำหรับใช้งานจริง ไม่อ้างการรับรองหรือเชื่อมต่อ PTT/NECTEC</p>
+<div class="actions">
+<a class="btn secondary" href="DEMO_GUIDE_TH.md">คู่มือเดโมละเอียด</a>
+<a class="btn secondary" href="EDIT_GUIDE_TH.md">คู่มือแก้โค้ด</a>
+<a class="btn secondary" href="TEST_REPORT_TH.md">รายงานทดสอบ</a>
+</div>
+</section>
+<footer class="page-footer">
+<span>ปลาศาลาหุม · ต้นแบบสำหรับ SPARK HACK Season 2</span>
+<span data-clock>
+</span>
+</footer>
+</main>
+<nav class="bottom-nav" id="bottom-nav" aria-label="เมนูมือถือ">
+</nav>
+</body>
+</html>

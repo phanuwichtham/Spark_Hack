@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0B6F68">
+<meta name="description" content="ปลาศาลาหุม ช่วยดูแลปลา วางแผนจับ และเชื่อมผู้ซื้อ ต้นแบบสาธิต">
+<title>ออเดอร์ของคุณ | ปลาศาลาหุม</title>
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/cloud.css">
+<script defer src="assets/js/config.js">
+</script>
+<script defer src="assets/js/utils.js">
+</script>
+<script defer src="assets/js/demo-data.js">
+</script>
+<script defer src="assets/js/calculations.js">
+</script>
+<script defer src="assets/js/risk-engine.js">
+</script>
+<script defer src="assets/js/store.js">
+</script>
+<script defer src="assets/js/domain.js">
+</script>
+<script defer src="assets/js/database-config.js"></script>
+<script defer src="assets/js/cloud.js"></script>
+<script defer src="assets/js/app-shell.js">
+</script>
+<script defer src="assets/js/pages/orders.js">
+</script>
+</head>
+<body data-page="orders">
+<a class="skip" href="#main">ข้ามไปเนื้อหาหลัก</a>
+<aside class="app-sidebar" id="app-sidebar" aria-label="เมนูด้านข้าง">
+</aside>
+<header class="app-header" id="app-header">
+</header>
+<main id="main" class="page">
+<div class="breadcrumbs">
+<a href="index.html">หน้าหลัก</a> / ออเดอร์ของคุณ</div>
+<div id="connection-notice">
+</div>
+<div id="role-gate">
+</div>
+<div class="page-heading">
+<div>
+<div class="eyebrow">ปลาศาลาหุม · พื้นที่ทดลอง</div>
+<h1>ออเดอร์ของคุณ</h1>
+<p>ช่วยดูแลปลา วางแผนจับ และเชื่อมผู้ซื้อ</p>
+</div>
+<a class="back-link" href="dashboard.html">← กลับภาพรวม</a>
+</div>
+<div class="toolbar">
+<div class="field">
+<label for="search">ค้นหาเลขออเดอร์หรือร้าน</label>
+<input id="search" name="search" type="search" value="" >
+</div>
+<div class="field">
+<label for="status-filter">สถานะ</label>
+<select id="status-filter" name="status-filter">
+<option value="all">ทุกสถานะ</option>
+<option value="requested">คำขอซื้อ</option>
+<option value="waiting">รอยืนยัน</option>
+<option value="confirmed">ยืนยันแล้ว</option>
+<option value="preparing">กำลังเตรียม</option>
+<option value="sent">ส่งแล้ว</option>
+<option value="received">รับครบ</option>
+<option value="partial">รับบางส่วน</option>
+<option value="closed">ปิดออเดอร์</option>
+<option value="cancelled">ยกเลิก</option>
+</select>
+</div>
+</div>
+<section class="grid two" id="orders-list">
+</section>
+<footer class="page-footer">
+<span>ปลาศาลาหุม · ต้นแบบสำหรับ SPARK HACK Season 2</span>
+<span data-clock>
+</span>
+</footer>
+</main>
+<nav class="bottom-nav" id="bottom-nav" aria-label="เมนูมือถือ">
+</nav>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0B6F68">
+<meta name="description" content="ปลาศาลาหุม ช่วยดูแลปลา วางแผนจับ และเชื่อมผู้ซื้อ ต้นแบบสาธิต">
+<title>ส่งคำขอซื้อปลา | ปลาศาลาหุม</title>
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/cloud.css">
+<script defer src="assets/js/config.js">
+</script>
+<script defer src="assets/js/utils.js">
+</script>
+<script defer src="assets/js/demo-data.js">
+</script>
+<script defer src="assets/js/calculations.js">
+</script>
+<script defer src="assets/js/risk-engine.js">
+</script>
+<script defer src="assets/js/store.js">
+</script>
+<script defer src="assets/js/domain.js">
+</script>
+<script defer src="assets/js/database-config.js"></script>
+<script defer src="assets/js/cloud.js"></script>
+<script defer src="assets/js/app-shell.js">
+</script>
+<script defer src="assets/js/pages/order.js">
+</script>
+</head>
+<body data-page="order">
+<a class="skip" href="#main">ข้ามไปเนื้อหาหลัก</a>
+<aside class="app-sidebar" id="app-sidebar" aria-label="เมนูด้านข้าง">
+</aside>
+<header class="app-header" id="app-header">
+</header>
+<main id="main" class="page">
+<div class="breadcrumbs">
+<a href="index.html">หน้าหลัก</a> / ส่งคำขอซื้อปลา</div>
+<div id="connection-notice">
+</div>
+<div id="role-gate">
+</div>
+<div class="page-heading">
+<div>
+<div class="eyebrow">ปลาศาลาหุม · พื้นที่ทดลอง</div>
+<h1>ส่งคำขอซื้อปลา</h1>
+<p>ช่วยดูแลปลา วางแผนจับ และเชื่อมผู้ซื้อ</p>
+</div>
+<a class="back-link" href="dashboard.html">← กลับภาพรวม</a>
+</div>
+<div id="detail-content">
+<div class="steps">
+<div class="step" data-step-label="1">01 เลือกปลา</div>
+<div class="step" data-step-label="2">02 จำนวนและวันรับ</div>
+<div class="step" data-step-label="3">03 ข้อมูลร้านและส่งคำขอ</div>
+</div>
+<form id="order-form">
+<div class="split">
+<section class="card">
+<fieldset data-step="1">
+<legend>เลือกปลาและรูปแบบสินค้า</legend>
+<div id="order-product">
+</div>
+<label class="check">
+<input type="radio" name="format" value="whole" checked>ปลาทั้งตัว ตรวจคุณภาพก่อนส่ง</label>
+</fieldset>
+<fieldset data-step="2" hidden>
+<legend>จำนวนและวันรับ</legend>
+<div class="field">
+<label for="kg">จำนวนที่ต้องการ (กก.)</label>
+<input id="kg" name="kg" type="number" value="20" min="0.001" step="0.001" inputmode="decimal">
+</div>
+<div class="actions" style="margin-top:-5px;margin-bottom:18px">
+<button class="btn small secondary" id="minus-kg" type="button">− 1 กก.</button>
+<button class="btn small secondary" id="plus-kg" type="button">+ 1 กก.</button>
+</div>
+<div class="field">
+<label for="receiveDate">วันที่ต้องการรับ</label>
+<input id="receiveDate" name="receiveDate" type="date" value="" >
+</div>
+<div class="field">
+<label for="window">ช่วงเวลารับสินค้า</label>
+<input id="window" name="window" type="text" value="09:00–12:00" >
+</div>
+</fieldset>
+<fieldset data-step="3" hidden>
+<legend>ข้อมูลร้านและจุดรับ</legend>
+<div class="notice" id="order-buyer">
+</div>
+<div class="field">
+<label for="place">จุดส่งหรือจุดรับ</label>
+<input id="place" name="place" type="text" value="ท่าเรือชุมชน (จำลอง)" >
+</div>
+<div class="field">
+<label for="note">หมายเหตุ</label>
+<textarea id="note" name="note">
+</textarea>
+</div>
+<label class="check">
+<input type="checkbox" id="optin" name="optin">สนใจรับข้อเสนอจับก่อนกำหนด (สมัครใจ)</label>
+<div id="optin-fields" hidden>
+<div class="field">
+<label for="offerProductId">ชนิดและขนาดที่สนใจ</label>
+<select id="offerProductId" name="offerProductId">
+<option value="P01">ปลาเก๋าไซซ์จาน</option>
+<option value="P02">ปลาเก๋าตัวใหญ่</option>
+<option value="P03">ปลากะพงสามน้ำ</option>
+</select>
+</div>
+<div class="field">
+<label for="extraKg">ปริมาณรับเพิ่มได้ (กก.)</label>
+<input id="extraKg" name="extraKg" type="number" value="" min="0.001" step="0.001">
+</div>
+<div class="field">
+<label for="extraDate">วันที่รับข้อเสนอได้</label>
+<input id="extraDate" name="extraDate" type="date" value="" >
+</div>
+<div class="field">
+<label for="extraWindow">ช่วงเวลารับข้อเสนอ</label>
+<input id="extraWindow" name="extraWindow" type="text" value="" >
+</div>
+<div class="field">
+<label for="channel">วิธีรับข่าวในเดโม</label>
+<select id="channel" name="channel">
+<option value="">เลือกช่องทาง</option>
+<option>หน้าเว็บสาธิต</option>
+</select>
+</div>
+<p class="small muted">การสมัครใจไม่ใช่การยืนยันซื้อในอนาคต ไม่มีข้อความส่งออกจากเว็บ</p>
+</div>
+</fieldset>
+<div class="form-error" role="alert" hidden>
+</div>
+<div class="actions">
+<button class="btn secondary" id="order-prev" type="button">← ย้อนกลับ</button>
+<button class="btn" id="order-next" type="button">ถัดไป →</button>
+<button class="btn" id="order-submit" type="submit" hidden>ส่งคำขอซื้อ</button>
+</div>
+</section>
+<aside class="card soft">
+<h2>สรุปคำขอ</h2>
+<div id="order-summary">
+</div>
+<p class="small muted">ยอดประมาณการก่อนชั่งจริง ค่าขนส่งรอผู้ประสานยืนยัน ไม่ถือเป็น 0 บาท</p>
+<hr>
+<p class="small muted">ข้อมูลร่างบันทึกอัตโนมัติในบัญชีนี้</p>
+</aside>
+</div>
+</form>
+</div>
+<footer class="page-footer">
+<span>ปลาศาลาหุม · ต้นแบบสำหรับ SPARK HACK Season 2</span>
+<span data-clock>
+</span>
+</footer>
+</main>
+<nav class="bottom-nav" id="bottom-nav" aria-label="เมนูมือถือ">
+</nav>
+</body>
+</html>

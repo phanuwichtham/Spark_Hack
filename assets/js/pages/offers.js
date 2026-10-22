@@ -1,0 +1,19 @@
+SPARK.page=function(){
+  const S=SPARK,U=S.ui,s=U.state(),u=U.user(),e=U.e;
+  if(!U.gate(['buyer','coordinator'])){document.querySelector('#offer-create-section').hidden=true;U.html('#offer-list',U.empty('ร้านตอบรับได้ในบัญชีร้าน','ผู้เลี้ยงดูและยืนยันออเดอร์ได้','orders.html','ดูออเดอร์'));return;}
+  document.querySelector('#offer-create-section').hidden=u.role!=='coordinator';
+  const plans=s.plans.filter(p=>p.status==='draft');
+  if(u.role==='coordinator'){
+    U.html('#planId',plans.map(p=>'<option value="'+e(p.id)+'">'+e(p.cageId)+' • '+S.util.kg(p.proposedKg)+'</option>').join('')||'<option value="">ยังไม่มีแผนร่าง</option>');
+    const render=()=>{const p=plans.find(p=>p.id===document.querySelector('#planId').value),c=p&&s.cages.find(c=>c.id===p.cageId);U.html('#buyerId',s.users.filter(b=>b.role==='buyer'&&b.optin&&b.species===c?.species&&(!b.offerProductIds||b.offerProductIds.includes(c.productId))&&(!b.offerDate||b.offerDate===p.date)).map(b=>'<option value="'+b.id+'">'+e(b.name)+' • สูงสุด '+S.util.kg(b.maxKg)+'</option>').join('')||'<option value="">ยังไม่มีร้านตรงเงื่อนไข</option>');};
+    document.querySelector('#planId').onchange=render;render();U.form(document.querySelector('#offer-form'),fd=>U.submit({type:'DRAFT_OFFER',...Object.fromEntries(fd)}));
+  }
+  U.html('#offer-list',s.offers.filter(o=>u.role==='coordinator'||o.buyerId===u.id).map(o=>{
+    const expired=new Date(o.expiresAt)<=new Date(s.demoNow),p=s.products.find(p=>p.id===o.productId),b=s.users.find(b=>b.id===o.buyerId);
+    return '<article class="card"><div class="card-head"><div><span class="cage-id">'+e(o.id)+'</span><h3>'+e(p.name)+'</h3><p class="small muted">เสนอให้ '+e(b.name)+'</p></div>'+U.tag(expired&&o.status==='sent'?'expired':o.status)+'</div><p><strong>'+S.util.kg(o.kg)+' • '+S.util.money(o.priceSatang)+'/กก.</strong></p><p class="small">รับ '+e(o.date+' '+o.window)+' • '+e(o.place)+'<br>'+e(o.qualityCondition)+'<br>หมดอายุ '+e(S.util.date(o.expiresAt))+'</p>'+(o.acceptedKg?'<p>ตอบรับจริง '+S.util.kg(o.acceptedKg)+'</p>':'')+(o.orderId?'<div class="actions">'+U.link('order-detail.html?id='+o.orderId,'ดูออเดอร์ที่เชื่อมกัน')+'</div>':'')+(u.role==='coordinator'&&o.status==='draft'?'<div class="actions"><button class="btn" data-send="'+e(o.id)+'">ส่งข้อเสนอในเดโม</button></div>':'')+(u.role==='coordinator'&&['draft','sent'].includes(o.status)?'<div class="actions"><button class="btn danger small" data-cancel="'+e(o.id)+'" data-expired="'+expired+'">'+(expired?'ปิดข้อเสนอหมดอายุ':'ยกเลิกข้อเสนอ')+'</button></div>':'')+(u.role==='buyer'&&o.status==='sent'&&!expired?'<form data-response="'+e(o.id)+'" style="margin-top:18px"><div class="field"><label for="response-'+e(o.id)+'">จำนวนที่ตอบรับ (กก.)</label><input id="response-'+e(o.id)+'" name="kg" type="number" value="'+o.kg+'" min="0.001" max="'+o.kg+'" step="0.001" required></div><div class="form-error" role="alert" hidden></div><div class="actions"><button class="btn">ตอบรับ / รับได้บางส่วน</button><button class="btn secondary" data-decline="'+e(o.id)+'" type="button">ไม่สะดวกรับ</button></div></form>':'')+'</article>';
+  }).reverse().join('')||U.empty('ยังไม่มีข้อเสนอ','ผู้ประสานสร้างร่างจากแผนจับและส่งให้ร้านที่สมัครใจ','harvest.html','ดูแผนจับ'));
+  document.querySelectorAll('[data-send]').forEach(b=>b.onclick=()=>U.act({type:'SEND_OFFER',offerId:b.dataset.send}));
+  document.querySelectorAll('[data-cancel]').forEach(b=>b.onclick=()=>U.act({type:b.dataset.expired==='true'?'EXPIRE_OFFER':'CANCEL_OFFER',offerId:b.dataset.cancel}));
+  document.querySelectorAll('[data-response]').forEach(f=>U.form(f,fd=>U.submit({type:'RESPOND_OFFER',offerId:f.dataset.response,response:'accept',kg:fd.get('kg')},s=>'order-detail.html?id='+s.lastResultId)));
+  document.querySelectorAll('[data-decline]').forEach(b=>b.onclick=()=>U.act({type:'RESPOND_OFFER',offerId:b.dataset.decline,response:'decline'}));
+};

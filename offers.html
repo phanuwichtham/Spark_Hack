@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0B6F68">
+<meta name="description" content="ปลาศาลาหุม ช่วยดูแลปลา วางแผนจับ และเชื่อมผู้ซื้อ ต้นแบบสาธิต">
+<title>ข้อเสนอจากแผนจับ | ปลาศาลาหุม</title>
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/cloud.css">
+<script defer src="assets/js/config.js">
+</script>
+<script defer src="assets/js/utils.js">
+</script>
+<script defer src="assets/js/demo-data.js">
+</script>
+<script defer src="assets/js/calculations.js">
+</script>
+<script defer src="assets/js/risk-engine.js">
+</script>
+<script defer src="assets/js/store.js">
+</script>
+<script defer src="assets/js/domain.js">
+</script>
+<script defer src="assets/js/database-config.js"></script>
+<script defer src="assets/js/cloud.js"></script>
+<script defer src="assets/js/app-shell.js">
+</script>
+<script defer src="assets/js/pages/offers.js">
+</script>
+</head>
+<body data-page="offers">
+<a class="skip" href="#main">ข้ามไปเนื้อหาหลัก</a>
+<aside class="app-sidebar" id="app-sidebar" aria-label="เมนูด้านข้าง">
+</aside>
+<header class="app-header" id="app-header">
+</header>
+<main id="main" class="page">
+<div class="breadcrumbs">
+<a href="index.html">หน้าหลัก</a> / ข้อเสนอจากแผนจับ</div>
+<div id="connection-notice">
+</div>
+<div id="role-gate">
+</div>
+<div class="page-heading">
+<div>
+<div class="eyebrow">ปลาศาลาหุม · พื้นที่ทดลอง</div>
+<h1>ข้อเสนอจากแผนจับ</h1>
+<p>ช่วยดูแลปลา วางแผนจับ และเชื่อมผู้ซื้อ</p>
+</div>
+<a class="back-link" href="dashboard.html">← กลับภาพรวม</a>
+</div>
+<div class="notice">เสนอเฉพาะร้านที่สมัครใจและเงื่อนไขตรงกัน การส่งเกิดในเว็บสาธิต ยังไม่ใช่ยอดขาย</div>
+<section class="card" id="offer-create-section">
+<h2>ร่างข้อเสนอให้ร้าน</h2>
+<form id="offer-form" style="margin-top:18px">
+<div class="fields">
+<div class="field">
+<label for="planId">แผนที่กำลังพิจารณา</label>
+<select id="planId" name="planId">
+</select>
+</div>
+<div class="field">
+<label for="buyerId">ร้านที่สมัครใจ</label>
+<select id="buyerId" name="buyerId">
+</select>
+</div>
+<div class="field">
+<label for="kg">ปริมาณเสนอ (กก.)</label>
+<input id="kg" name="kg" type="number" value="30" min="0.001" step="0.001" required>
+</div>
+<div class="field">
+<label for="receiveWindow">ช่วงเวลารับที่ตรงเงื่อนไขร้าน</label>
+<input id="receiveWindow" name="receiveWindow" type="text" value="09:00–12:00" required>
+</div>
+<div class="field">
+<label for="place">สถานที่รับ</label>
+<input id="place" name="place" type="text" value="ท่าเรือชุมชน (จำลอง)" required>
+</div>
+</div>
+<div class="form-error" role="alert" hidden>
+</div>
+<button class="btn">สร้างร่างข้อเสนอ</button>
+</form>
+</section>
+<div class="section-heading">
+<h2>รายการข้อเสนอ</h2>
+</div>
+<section class="stack" id="offer-list">
+</section>
+<footer class="page-footer">
+<span>ปลาศาลาหุม · ต้นแบบสำหรับ SPARK HACK Season 2</span>
+<span data-clock>
+</span>
+</footer>
+</main>
+<nav class="bottom-nav" id="bottom-nav" aria-label="เมนูมือถือ">
+</nav>
+</body>
+</html>

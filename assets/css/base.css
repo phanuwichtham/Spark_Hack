@@ -1,0 +1,159 @@
+*  {
+  box-sizing:border-box
+}
+html  {
+  scroll-behavior:smooth
+}
+body  {
+  margin:0;
+  font:16px/1.65 var(--font);
+  background:var(--background);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased
+}
+h1,h2,h3,p  {
+  margin:0
+}
+h1  {
+  font-size:clamp(28px,3vw,36px);
+  line-height:1.45;
+  letter-spacing:-.6px
+}
+h2  {
+  font-size:22px
+}
+h3  {
+  font-size:18px
+}
+p+p  {
+  margin-top:10px
+}
+a  {
+  color:var(--primary);
+  text-decoration:none
+}
+a:hover  {
+  text-decoration:underline
+}
+button,input,select,textarea  {
+  font:inherit
+}
+button  {
+  cursor:pointer
+}
+button:disabled  {
+  opacity:.45;
+  cursor:not-allowed
+}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible  {
+  outline:3px solid #d69f4e;
+  outline-offset:3px
+}
+input:not([type=checkbox]):not([type=radio]),select,textarea  {
+  width:100%;
+  min-width:0;
+  min-height:48px;
+  padding:12px;
+  border:1px solid #c7d8d1;
+  border-radius:11px;
+  color:var(--text);
+  background:white;
+  font-size:16px
+}
+textarea  {
+  min-height:95px;
+  resize:vertical
+}
+input[type=checkbox],input[type=radio]  {
+  width:20px;
+  height:20px;
+  accent-color:var(--primary);
+  flex-shrink:0
+}
+label  {
+  display:block;
+  font-weight:600;
+  font-size:15px;
+  margin-bottom:7px
+}
+fieldset  {
+  border:0;
+  padding:0;
+  margin:0;
+  min-width:0
+}
+legend  {
+  font-size:20px;
+  font-weight:650;
+  margin-bottom:18px
+}
+img  {
+  max-width:100%;
+  display:block
+}
+small,.small  {
+  font-size:13px
+}
+hr  {
+  border:0;
+  border-top:1px solid var(--border);
+  margin:24px 0
+}
+strong  {
+  font-weight:650
+}
+ul,ol  {
+  padding-left:24px
+}
+h1,h2,h3,p,a,dd,strong  {
+  overflow-wrap:anywhere
+}
+dialog  {
+  width:min(520px,calc(100% - 28px));
+  border:1px solid var(--border);
+  border-radius:20px;
+  color:var(--text);
+  padding:26px;
+  max-height:88vh;
+  overflow:auto;
+  box-shadow:0 25px 80px #1238
+}
+dialog::backdrop  {
+  background:#17384388
+}
+summary  {
+  min-height:44px;
+  cursor:pointer;
+  font-weight:600;
+  padding:8px 0
+}
+code  {
+  background:var(--soft);
+  padding:3px 6px;
+  border-radius:4px;
+  overflow-wrap:anywhere
+}
+pre  {
+  background:#123d42;
+  color:white;
+  padding:16px;
+  border-radius:12px;
+  overflow:auto
+}
+[hidden]  {
+  display:none!important
+}
+.muted  {
+  color:var(--muted)
+}
+.skip  {
+  position:fixed;
+  top:-90px;
+  left:12px;
+  background:white;
+  z-index:200;
+  padding:15px
+}
+.skip:focus  {
+  top:12px
+}

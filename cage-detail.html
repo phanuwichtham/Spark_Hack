@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0B6F68">
+<meta name="description" content="ปลาศาลาหุม ช่วยดูแลปลา วางแผนจับ และเชื่อมผู้ซื้อ ต้นแบบสาธิต">
+<title>รายละเอียดกระชัง | ปลาศาลาหุม</title>
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/cloud.css">
+<script defer src="assets/js/config.js">
+</script>
+<script defer src="assets/js/utils.js">
+</script>
+<script defer src="assets/js/demo-data.js">
+</script>
+<script defer src="assets/js/calculations.js">
+</script>
+<script defer src="assets/js/risk-engine.js">
+</script>
+<script defer src="assets/js/store.js">
+</script>
+<script defer src="assets/js/domain.js">
+</script>
+<script defer src="assets/js/database-config.js"></script>
+<script defer src="assets/js/cloud.js"></script>
+<script defer src="assets/js/app-shell.js">
+</script>
+<script defer src="assets/js/pages/cage-detail.js">
+</script>
+</head>
+<body data-page="cage-detail">
+<a class="skip" href="#main">ข้ามไปเนื้อหาหลัก</a>
+<aside class="app-sidebar" id="app-sidebar" aria-label="เมนูด้านข้าง">
+</aside>
+<header class="app-header" id="app-header">
+</header>
+<main id="main" class="page">
+<div class="breadcrumbs">
+<a href="index.html">หน้าหลัก</a> / รายละเอียดกระชัง</div>
+<div id="connection-notice">
+</div>
+<div id="role-gate">
+</div>
+<div class="page-heading">
+<div>
+<div class="eyebrow">ปลาศาลาหุม · พื้นที่ทดลอง</div>
+<h1>รายละเอียดกระชัง</h1>
+<p>ช่วยดูแลปลา วางแผนจับ และเชื่อมผู้ซื้อ</p>
+</div>
+<a class="back-link" href="dashboard.html">← กลับภาพรวม</a>
+</div>
+<div id="detail-content">
+<section id="cage-overview">
+</section>
+<section class="card" style="margin-top:24px">
+<h2>ค่าน้ำล่าสุดที่บันทึกแล้ว</h2>
+<div id="water-summary">
+</div>
+<h3>ประวัติการวัด</h3>
+<div id="water-history">
+</div>
+</section>
+<div class="split" style="margin-top:24px">
+<section class="card">
+<h2>เหตุและงานที่เกี่ยวข้อง</h2>
+<div id="cage-incidents">
+</div>
+</section>
+<section class="card">
+<h2>แผนและล็อตจากกระชังนี้</h2>
+<div id="cage-lots">
+</div>
+</section>
+</div>
+<section class="card" style="margin-top:24px">
+<details>
+<summary>ปรับประมาณการจากการสำรวจ / การตาย / การย้าย</summary>
+<form id="adjust-cage-form">
+<div class="field">
+<label for="liveKg">น้ำหนักมีชีวิตประมาณการใหม่ (กก.)</label>
+<input id="liveKg" name="liveKg" type="number" value="" min="0" step="0.001" required>
+</div>
+<div class="field">
+<label for="reason">เหตุผลและหลักฐาน</label>
+<textarea id="reason" name="reason">
+</textarea>
+</div>
+<div class="form-error" role="alert" hidden>
+</div>
+<button class="btn secondary">บันทึกประมาณการใหม่</button>
+</form>
+</details>
+</section>
+</div>
+<footer class="page-footer">
+<span>ปลาศาลาหุม · ต้นแบบสำหรับ SPARK HACK Season 2</span>
+<span data-clock>
+</span>
+</footer>
+</main>
+<nav class="bottom-nav" id="bottom-nav" aria-label="เมนูมือถือ">
+</nav>
+</body>
+</html>

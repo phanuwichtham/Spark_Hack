@@ -1,0 +1,20 @@
+/* แก้ตัวแปรชุดนี้เพื่อเปลี่ยนธีม */
+:root  {
+  --primary:#0b6f68;
+  --primary-dark:#07534e;
+  --text:#173843;
+  --muted:#617a80;
+  --background:#f7faf8;
+  --surface:#fff;
+  --soft:#eaf6f3;
+  --border:#dae6e1;
+  --amber:#99621c;
+  --amber-bg:#fff4dd;
+  --red:#a63735;
+  --red-bg:#fff0ed;
+  --blue:#486b86;
+  --blue-bg:#edf3f8;
+  --radius:18px;
+  --font:'Noto Sans Thai','Leelawadee UI',Tahoma,sans-serif;
+  --sidebar:248px
+}
